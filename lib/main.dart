@@ -14,6 +14,7 @@ class FruitHub extends StatelessWidget {
     return const MaterialApp(
       onGenerateRoute: onGenerateRoute,
       initialRoute: SplashView.routeName,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
