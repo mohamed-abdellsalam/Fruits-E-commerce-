@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class PageViewItem extends StatelessWidget {
-  const PageViewItem(
-      {super.key,
-      required this.image,
-      required this.backroundImage,
-      required this.subtitle,
-      required this.title});
+  const PageViewItem({
+    super.key,
+    required this.image,
+    required this.backroundImage,
+    required this.subtitle,
+    required this.title,
+  });
   final String image, backroundImage;
   final String subtitle;
   final Widget title;
