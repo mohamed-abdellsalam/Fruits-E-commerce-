@@ -3,11 +3,12 @@ import 'package:fruits_hub/core/utils/app_images.dart';
 import 'package:fruits_hub/features/on_boarding/presentation/views/widgets/page_view_item.dart';
 
 class OnBoardingPageView extends StatelessWidget {
-  const OnBoardingPageView({super.key});
-
+  const OnBoardingPageView({super.key, required this.pageController});
+  final PageController pageController;
   @override
   Widget build(BuildContext context) {
     return PageView(
+      controller: pageController,
       children: const [
         PageViewItem(
           image: Assets.imagesPageViewItem1Image,
@@ -22,6 +23,7 @@ class OnBoardingPageView extends StatelessWidget {
               Text('HUB'),
             ],
           ),
+          isvisible: true,
         ),
         PageViewItem(
           image: Assets.imagesPageViewItem2Image,
@@ -38,6 +40,7 @@ class OnBoardingPageView extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
+          isvisible: false,
         ),
       ],
     );
