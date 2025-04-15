@@ -27,44 +27,46 @@ class _TermsAndConditionsWidgetState extends State<TermsAndConditionsWidget> {
         const SizedBox(
           width: 16,
         ),
-        Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                text: 'من خلال إنشاء حساب ، فإنك توافق على ',
-                style: TextStyles.semiBold13(context).copyWith(
-                  color: const Color(0xFF949D9E),
+        Expanded(
+          child: Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: 'من خلال إنشاء حساب ، فإنك توافق على ',
+                  style: TextStyles.semiBold13(context).copyWith(
+                    color: const Color(0xFF949D9E),
+                  ),
                 ),
-              ),
-              TextSpan(
-                text: 'الشروط والأحكام',
-                style: TextStyles.semiBold13(context).copyWith(
-                  color: AppColors.lightPrimaryColor,
+                TextSpan(
+                  text: 'الشروط والأحكام',
+                  style: TextStyles.semiBold13(context).copyWith(
+                    color: AppColors.lightPrimaryColor,
+                  ),
                 ),
-              ),
-              TextSpan(
-                text: ' ',
-                style: TextStyles.semiBold13(context),
-              ),
-              TextSpan(
-                text: 'الخاصة',
-                style: TextStyles.semiBold13(context).copyWith(
-                  color: AppColors.lightPrimaryColor,
+                TextSpan(
+                  text: ' ',
+                  style: TextStyles.semiBold13(context),
                 ),
-              ),
-              TextSpan(
-                text: ' ',
-                style: TextStyles.semiBold13(context),
-              ),
-              TextSpan(
-                text: 'بنا',
-                style: TextStyles.semiBold13(context).copyWith(
-                  color: AppColors.lightPrimaryColor,
+                TextSpan(
+                  text: 'الخاصة',
+                  style: TextStyles.semiBold13(context).copyWith(
+                    color: AppColors.lightPrimaryColor,
+                  ),
                 ),
-              ),
-            ],
+                TextSpan(
+                  text: ' ',
+                  style: TextStyles.semiBold13(context),
+                ),
+                TextSpan(
+                  text: 'بنا',
+                  style: TextStyles.semiBold13(context).copyWith(
+                    color: AppColors.lightPrimaryColor,
+                  ),
+                ),
+              ],
+            ),
+            textAlign: TextAlign.right,
           ),
-          textAlign: TextAlign.right,
         ),
       ],
     );
