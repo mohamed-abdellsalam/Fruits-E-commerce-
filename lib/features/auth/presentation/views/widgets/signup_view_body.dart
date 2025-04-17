@@ -84,7 +84,10 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                         context
                             .read<SignupCubit>()
                             .createUserWithEmailAndPassword(
-                                email: email, password: password, name: name);
+                              email: email,
+                              password: password,
+                              name: name,
+                            );
                       } else {
                         buildErrorBar(context, 'يجب قبول الشروط والأحكام');
                       }
