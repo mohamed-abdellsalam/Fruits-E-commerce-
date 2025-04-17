@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub/constants.dart';
+import 'package:fruits_hub/core/helper_functions/build_error_bar.dart';
 import 'package:fruits_hub/core/widgets/custom_button.dart';
 import 'package:fruits_hub/core/widgets/custom_password_field.dart';
 import 'package:fruits_hub/core/widgets/custom_text_field.dart';
@@ -20,6 +21,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
 
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
   late String email, password, name;
+  late bool isTermsAccepted = false;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -62,7 +64,12 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 const SizedBox(
                   height: 16,
                 ),
-                const TermsAndConditionsWidget(),
+                TermsAndConditionsWidget(
+                  onChanged: (value) {
+                    isTermsAccepted = value;
+                    setState(() {});
+                  },
+                ),
                 const SizedBox(
                   height: 30,
                 ),
@@ -72,10 +79,15 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
 
-                      context
-                          .read<SignupCubit>()
-                          .createUserWithEmailAndPassword(
-                              email: email, password: password, name: name);
+                      if (isTermsAccepted) {
+                        // Call the signup function from the cubit
+                        context
+                            .read<SignupCubit>()
+                            .createUserWithEmailAndPassword(
+                                email: email, password: password, name: name);
+                      } else {
+                        buildErrorBar(context, 'يجب قبول الشروط والأحكام');
+                      }
                     } else {
                       setState(() {
                         autoValidateMode = AutovalidateMode.always;
