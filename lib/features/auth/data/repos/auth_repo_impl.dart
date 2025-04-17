@@ -1,14 +1,16 @@
 import 'package:dartz/dartz.dart';
-import 'package:fruits_hub/core/erros/exception.dart';
-import 'package:fruits_hub/core/erros/failures.dart';
+import 'package:fruits_hub/core/errors/exception.dart';
+import 'package:fruits_hub/core/errors/failures.dart';
 import 'package:fruits_hub/core/services/firebase_auth_services.dart';
 import 'package:fruits_hub/features/auth/data/models/user_model.dart';
 import 'package:fruits_hub/features/auth/domain/repos/auth_repo.dart';
 import 'package:fruits_hub/features/auth/entites/user_entity.dart';
 
-final firebaseAuthServices = FirebaseAuthServices();
-
 class AuthRepoImpl extends AuthRepo {
+  final FirebaseAuthServices firebaseAuthService;
+
+  AuthRepoImpl({required this.firebaseAuthService});
+
   @override
   Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword({
     required String email,
@@ -17,7 +19,7 @@ class AuthRepoImpl extends AuthRepo {
   }) async {
     {
       try {
-        var user = await firebaseAuthServices.createUserWithEmailAndPassword(
+        var user = await firebaseAuthService.createUserWithEmailAndPassword(
           email: email,
           password: password,
         );
@@ -31,7 +33,7 @@ class AuthRepoImpl extends AuthRepo {
       } catch (e) {
         return left(
           const ServerFailure(
-              message: 'An unknown error occurred. please try again later.'),
+              message: 'حصل خطأ غير متوقع. يرجى المحاولة مرة أخرى لاحقًا.'),
         );
       }
     }

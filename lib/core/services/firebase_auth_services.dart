@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fruits_hub/core/erros/exception.dart';
+import 'package:fruits_hub/core/errors/exception.dart';
 
 class FirebaseAuthServices {
   Future<User> createUserWithEmailAndPassword({
@@ -15,15 +15,16 @@ class FirebaseAuthServices {
       return credential.user!;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        throw CustomException(message: 'The password provided is too weak.');
+        throw CustomException(message: 'الكلمة السر ضعيفة للغاية.');
       } else if (e.code == 'email-already-in-use') {
         throw CustomException(
-            message: 'The account already exists for that email.');
+            message: 'لقد تم استخدام هذا البريد الإلكتروني بالفعل.');
       }
     } catch (e) {
       throw CustomException(
-          message: 'An unknown error occurred. please try again later.');
+          message: 'حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى لاحقًا.');
     }
-    throw CustomException(message: 'An unexpected error occurred.');
+    throw CustomException(
+        message: 'حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى لاحقًا.');
   }
 }
