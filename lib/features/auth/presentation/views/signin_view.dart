@@ -14,7 +14,7 @@ class SignInView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context, title: 'تسجيل دخول', onPressed: () {
-        SystemNavigator.pop(); // Close the app when back button is pressed
+        SystemNavigator.pop();
       }),
       body: BlocProvider(
         create: (context) => SigninCubit(
