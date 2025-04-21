@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub/core/services/get_it_service.dart';
 import 'package:fruits_hub/features/auth/domain/repos/auth_repo.dart';
@@ -12,7 +13,9 @@ class SignInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context, title: 'تسجيل دخول'),
+      appBar: buildAppBar(context, title: 'تسجيل دخول', onPressed: () {
+        SystemNavigator.pop(); // Close the app when back button is pressed
+      }),
       body: BlocProvider(
         create: (context) => SigninCubit(
           getIt.get<AuthRepo>(),

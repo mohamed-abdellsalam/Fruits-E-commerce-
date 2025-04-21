@@ -17,7 +17,13 @@ class SignupView extends StatelessWidget {
             AuthRepo>(), // Assuming you have a method to get the AuthRepo instance
       ),
       child: Scaffold(
-        appBar: buildAppBar(context, title: 'حساب جديد'),
+        appBar: buildAppBar(
+          context,
+          title: 'حساب جديد',
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         body: const SignUPViewBodyBlocConsumer(),
       ),
     );
