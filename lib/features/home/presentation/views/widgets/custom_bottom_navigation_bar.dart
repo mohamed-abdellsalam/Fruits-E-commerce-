@@ -39,9 +39,19 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           var index = e.key;
           var entity = e.value;
 
-          return NavigtionBarItem(
-            isActive: currentIndex == index,
-            bottomNavigationBarEntity: entity,
+          return Expanded(
+            flex: index == currentIndex ? 3 : 2,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  currentIndex = index;
+                });
+              },
+              child: NavigtionBarItem(
+                isActive: currentIndex == index,
+                bottomNavigationBarEntity: entity,
+              ),
+            ),
           );
         }).toList(),
       ),
