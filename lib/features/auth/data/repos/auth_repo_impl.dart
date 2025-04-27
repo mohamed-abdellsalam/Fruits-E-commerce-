@@ -73,6 +73,7 @@ class AuthRepoImpl extends AuthRepo {
         password: password,
       );
       var userEntity = await getUserData(uid: user.uid);
+      await saveUserData(user: userEntity);
       return right(
         userEntity,
       );
@@ -103,6 +104,7 @@ class AuthRepoImpl extends AuthRepo {
       } else {
         await addUserData(user: userEntity);
       }
+      await saveUserData(user: userEntity);
       return right(
         userEntity,
       );
@@ -136,6 +138,7 @@ class AuthRepoImpl extends AuthRepo {
       } else {
         await addUserData(user: userEntity);
       }
+      await saveUserData(user: userEntity);
 
       return right(userEntity);
     } on CustomException catch (e) {
@@ -168,6 +171,7 @@ class AuthRepoImpl extends AuthRepo {
       } else {
         await addUserData(user: userEntity);
       }
+      await saveUserData(user: userEntity);
 
       return right(userEntity);
     } on CustomException catch (e) {
