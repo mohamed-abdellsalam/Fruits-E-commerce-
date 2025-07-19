@@ -25,6 +25,16 @@ class ReviewModel {
     );
   }
 
+  ReviewEntity toEntity() {
+    return ReviewEntity(
+      name: name,
+      image: image,
+      rating: rating,
+      date: date,
+      reviewDescription: reviewDescription,
+    );
+  }
+
   factory ReviewModel.fromJson(Map<String, dynamic> json) {
     return ReviewModel(
         name: json['name'],

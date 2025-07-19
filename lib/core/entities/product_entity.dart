@@ -30,5 +30,6 @@ class ProductEntity {
     required this.unitAmount,
     this.isOrganic = false,
     this.imageUrl,
+    required int sellingCount,
   });
 }
