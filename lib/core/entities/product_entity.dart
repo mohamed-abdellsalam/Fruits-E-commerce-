@@ -5,7 +5,6 @@ class ProductEntity {
   final String code;
   final String description;
   final double price;
-
   final bool isFeatured;
   String? imageUrl;
   final int expirationMonths;
