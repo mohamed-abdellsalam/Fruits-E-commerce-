@@ -40,7 +40,9 @@ class ProductsRepoImpl extends ProductsRepo {
 
       return Right(products);
     } catch (e) {
-      return left(ServerFailure(message: 'Failed to fetch products: $e'));
+      return left(
+        const ServerFailure(message: 'Failed to fetch products '),
+      );
     }
   }
 }
