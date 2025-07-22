@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub/constants.dart';
 import 'package:fruits_hub/core/cubits/products_cubit/products_cubit.dart';
 import 'package:fruits_hub/core/widgets/custom_search_text_field.dart';
-import 'package:fruits_hub/features/home/presentation/views/widgets/best_selling_grid_view_bloc_builder.dart';
 import 'package:fruits_hub/features/home/presentation/views/widgets/custom_home_appbar.dart';
+import 'package:fruits_hub/features/home/presentation/views/widgets/products_grid_view_bloc_builder.dart';
 import 'package:fruits_hub/features/home/presentation/views/widgets/products_view_header.dart';
 
 class ProductsViewBody extends StatefulWidget {
@@ -50,7 +50,7 @@ class _ProductsViewBodyState extends State<ProductsViewBody> {
               ],
             ),
           ),
-          const BestSellingGridViewBlocBuilder(),
+          const ProductsGridViewBlocBuilder(),
         ],
       ),
     );

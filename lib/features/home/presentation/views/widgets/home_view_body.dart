@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub/constants.dart';
 import 'package:fruits_hub/core/cubits/products_cubit/products_cubit.dart';
 import 'package:fruits_hub/core/widgets/custom_search_text_field.dart';
-import 'package:fruits_hub/features/home/presentation/views/widgets/best_selling_grid_view_bloc_builder.dart';
 import 'package:fruits_hub/features/home/presentation/views/widgets/best_selling_header.dart';
 import 'package:fruits_hub/features/home/presentation/views/widgets/custom_home_appbar.dart';
 import 'package:fruits_hub/features/home/presentation/views/widgets/featured_list.dart';
+import 'package:fruits_hub/features/home/presentation/views/widgets/products_grid_view_bloc_builder.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({
@@ -56,7 +56,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               ],
             ),
           ),
-          BestSellingGridViewBlocBuilder(),
+          ProductsGridViewBlocBuilder(),
         ],
       ),
     );
