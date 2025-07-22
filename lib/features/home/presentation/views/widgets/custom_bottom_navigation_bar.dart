@@ -3,7 +3,14 @@ import 'package:fruits_hub/features/home/domain/entites/bottom_navigation_bar_en
 import 'package:fruits_hub/features/home/presentation/views/widgets/navigation_bar_item.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({super.key});
+  final int currentIndex;
+  final ValueChanged<int> onTap;
+
+  const CustomBottomNavigationBar({
+    super.key,
+    required this.currentIndex,
+    required this.onTap,
+  });
 
   @override
   State<CustomBottomNavigationBar> createState() =>
@@ -11,11 +18,9 @@ class CustomBottomNavigationBar extends StatefulWidget {
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 375,
       height: 70,
       decoration: const ShapeDecoration(
         color: Colors.white,
@@ -36,19 +41,15 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       ),
       child: Row(
         children: bottomNavigationBarItems.asMap().entries.map((e) {
-          var index = e.key;
-          var entity = e.value;
+          final index = e.key;
+          final entity = e.value;
 
           return Expanded(
-            flex: index == currentIndex ? 3 : 2,
+            flex: index == widget.currentIndex ? 3 : 2,
             child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  currentIndex = index;
-                });
-              },
+              onTap: () => widget.onTap(index),
               child: NavigtionBarItem(
-                isActive: currentIndex == index,
+                isActive: widget.currentIndex == index,
                 bottomNavigationBarEntity: entity,
               ),
             ),
