@@ -8,7 +8,6 @@ import 'package:fruits_hub/features/home/presentation/views/widgets/cart_items_l
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -40,7 +39,9 @@ class CartViewBody extends StatelessWidget {
             const SliverToBoxAdapter(
               child: CustomDivider(),
             ),
-            const CartItemsList(),
+            const CartItemsList(
+              cartItem: [],
+            ),
             const SliverToBoxAdapter(
               child: CustomDivider(),
             ),
