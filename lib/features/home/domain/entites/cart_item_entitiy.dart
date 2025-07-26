@@ -4,8 +4,7 @@ class CartItemEntitiy {
   final ProductEntity productEntity;
   int count;
 
-  CartItemEntitiy(
-      {required this.productEntity, this.count = 0, required int quantity});
+  CartItemEntitiy({required this.productEntity, this.count = 0});
   num calculateTotalPrice() {
     return productEntity.price * count;
   }
