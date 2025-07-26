@@ -1,3 +1,4 @@
+import 'package:fruits_hub/core/entities/product_entity.dart';
 import 'package:fruits_hub/features/home/domain/entites/cart_item_entitiy.dart';
 
 class CartEntity {
@@ -7,5 +8,14 @@ class CartEntity {
 
   addCartItem(CartItemEntitiy cartItemEntity) {
     carItems.add(cartItemEntity);
+  }
+
+  bool isExists(ProductEntity product) {
+    for (var carItems in carItems) {
+      if (carItems.productEntity == product) {
+        return true;
+      }
+    }
+    return false;
   }
 }
