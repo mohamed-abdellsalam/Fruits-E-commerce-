@@ -12,4 +12,14 @@ class CartItemEntitiy {
   num calculateTotalWeight() {
     return productEntity.unitAmount * count;
   }
+
+  increaseCount() {
+    count++;
+  }
+
+  decreaseCount() {
+    if (count > 0) {
+      count--;
+    }
+  }
 }
