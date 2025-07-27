@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub/constants.dart';
 import 'package:fruits_hub/core/widgets/build_app_barr.dart';
-import 'package:fruits_hub/core/widgets/custom_button.dart';
 import 'package:fruits_hub/core/widgets/custom_divider.dart';
 import 'package:fruits_hub/features/home/presentation/cubit/cart_cubit/cart_cubit.dart';
 import 'package:fruits_hub/features/home/presentation/views/widgets/cart_header.dart';
 import 'package:fruits_hub/features/home/presentation/views/widgets/cart_items_list.dart';
+import 'package:fruits_hub/features/home/presentation/views/widgets/custom_cart_button.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
@@ -44,7 +44,7 @@ class CartViewBody extends StatelessWidget {
                   : const CustomDivider(),
             ),
             CartItemsList(
-              cartItem: context.read<CartCubit>().cartEntity.carItems,
+              cartItem: context.watch<CartCubit>().cartEntity.carItems,
             ),
             SliverToBoxAdapter(
               child: context.read<CartCubit>().cartEntity.carItems.isEmpty
@@ -57,11 +57,7 @@ class CartViewBody extends StatelessWidget {
           left: 16,
           right: 16,
           bottom: MediaQuery.sizeOf(context).height * .07,
-          child: CustomButton(
-            onPressed: () {},
-            text:
-                'الدفع  ${context.watch<CartCubit>().cartEntity.calculateTotalPrice().toDouble()} جنيه',
-          ),
+          child: const CustomCartButton(),
         )
       ],
     );
