@@ -18,6 +18,6 @@ class CartCubit extends Cubit<CartState> {
       cartEntity.addCartItem(carItem);
     }
 
-    emit(CartItemAdded());
+    emit(CartProductAdded());
   }
 }
