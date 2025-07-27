@@ -21,6 +21,9 @@ class MainViewBodyBLocConsumer extends StatelessWidget {
         if (state is CartItemAdded) {
           buildErrorBar(context, 'تمت العمليه بنجاح');
         }
+        if (state is CartItemRemoved) {
+          buildErrorBar(context, 'تم حذف المنتج بنجاح');
+        }
       },
       child: MainViewBody(
         currentIndex: currentIndex,
