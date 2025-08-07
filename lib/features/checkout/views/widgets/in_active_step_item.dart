@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fruits_hub/core/utils/app_text_styles.dart';
 
 class InActiveStepItem extends StatelessWidget {
-  const InActiveStepItem({super.key});
-
+  const InActiveStepItem({super.key, required this.index, required this.text});
+  final String index;
+  final String text;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -13,7 +14,7 @@ class InActiveStepItem extends StatelessWidget {
           radius: 10,
           backgroundColor: const Color(0xfff2f3f3),
           child: Text(
-            '2',
+            index,
             style: TextStyles.semiBold13(context),
           ),
         ),
@@ -21,7 +22,7 @@ class InActiveStepItem extends StatelessWidget {
           width: 4.0,
         ),
         Text(
-          'الشحن',
+          text,
           style: TextStyles.semiBold13(context).copyWith(
             color: const Color(0xffaaaaaa),
           ),

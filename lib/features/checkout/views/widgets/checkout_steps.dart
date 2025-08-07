@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_hub/features/checkout/views/widgets/active_step_item.dart';
+import 'package:fruits_hub/features/checkout/views/widgets/step_item.dart';
 
 class CheckoutSteps extends StatelessWidget {
   const CheckoutSteps({super.key});
@@ -7,11 +7,24 @@ class CheckoutSteps extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: List.generate(4, (index) {
-        return const Expanded(
-          child: ActiveStepItem(),
+      children: List.generate(getsteps().length, (index) {
+        return Expanded(
+          child: StepItem(
+            index: index.toString(),
+            text: getsteps()[index],
+            isActive: false,
+          ),
         );
       }),
     );
+  }
+
+  List<String> getsteps() {
+    return [
+      'الشحن',
+      'العنوان',
+      'الدفع',
+      'المراجعه',
+    ];
   }
 }
