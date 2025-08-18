@@ -38,18 +38,19 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         children: [
           const SizedBox(height: 20.0),
           CheckoutSteps(
+            pageController: pageController,
             currentPageIndex: currentPageIndex,
           ),
           CheckoutStepsPageView(pageController: pageController),
           CustomButton(
             onPressed: () {
               pageController.animateToPage(
-                2,
+                currentPageIndex + 1,
                 duration: const Duration(microseconds: 300),
                 curve: Curves.easeInOut,
               );
             },
-            text: 'التالي',
+            text: getNextButtonText(currentPageIndex),
           ),
           const SizedBox(
             height: 32,
@@ -57,5 +58,18 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         ],
       ),
     );
+  }
+
+  String getNextButtonText(int currentPageIndex) {
+    switch (currentPageIndex) {
+      case 0:
+        return 'التالي';
+      case 1:
+        return 'التالي';
+      case 2:
+        return 'الدفع بواسطه باي بال';
+      default:
+        return 'التالي';
+    }
   }
 }
