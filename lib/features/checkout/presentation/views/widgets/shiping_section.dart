@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_hub/features/checkout/views/widgets/shiping_item.dart';
+import 'package:fruits_hub/features/checkout/presentation/views/widgets/shiping_item.dart';
 
 class ShipingSection extends StatefulWidget {
   const ShipingSection({super.key});

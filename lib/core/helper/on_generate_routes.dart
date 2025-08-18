@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits_hub/features/auth/presentation/views/signin_view.dart';
 import 'package:fruits_hub/features/auth/presentation/views/signup_view.dart';
 import 'package:fruits_hub/features/best_selling/presentation/views/best_selling_view.dart';
-import 'package:fruits_hub/features/checkout/views/checkout_view.dart';
+import 'package:fruits_hub/features/checkout/presentation/views/checkout_view.dart';
 import 'package:fruits_hub/features/home/presentation/views/main_view.dart';
 import 'package:fruits_hub/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:fruits_hub/features/splash/presentation/views/splash_view.dart';

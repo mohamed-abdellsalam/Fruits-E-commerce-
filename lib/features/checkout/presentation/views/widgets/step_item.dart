@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_hub/features/checkout/views/widgets/active_step_item.dart';
-import 'package:fruits_hub/features/checkout/views/widgets/in_active_step_item.dart';
+import 'package:fruits_hub/features/checkout/presentation/views/widgets/active_step_item.dart';
+import 'package:fruits_hub/features/checkout/presentation/views/widgets/in_active_step_item.dart';
 
 class StepItem extends StatelessWidget {
   const StepItem(
