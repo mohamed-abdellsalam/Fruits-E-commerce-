@@ -35,8 +35,9 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
           CheckoutStepsPageView(pageController: pageController),
           CustomButton(
             onPressed: () {
-              pageController.nextPage(
-                duration: const Duration(milliseconds: 300),
+              pageController.animateToPage(
+                2,
+                duration: const Duration(microseconds: 300),
                 curve: Curves.easeInOut,
               );
             },

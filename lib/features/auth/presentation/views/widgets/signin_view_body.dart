@@ -38,7 +38,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
               const SizedBox(
                 height: 24,
               ),
-              CustomFromTextField(
+              CustomFormTextField(
                 onSaved: (value) {
                   email = value!;
                 },

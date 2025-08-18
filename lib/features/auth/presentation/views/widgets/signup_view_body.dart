@@ -36,7 +36,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 const SizedBox(
                   height: 24,
                 ),
-                CustomFromTextField(
+                CustomFormTextField(
                   onSaved: (value) {
                     name = value!;
                   },
@@ -46,7 +46,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 const SizedBox(
                   height: 16,
                 ),
-                CustomFromTextField(
+                CustomFormTextField(
                   onSaved: (value) {
                     email = value!;
                   },

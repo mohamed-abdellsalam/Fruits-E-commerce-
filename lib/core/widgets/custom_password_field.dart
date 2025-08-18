@@ -16,7 +16,7 @@ class _PasswordFieldState extends State<PasswordField> {
   bool isObscure = true;
   @override
   Widget build(BuildContext context) {
-    return CustomFromTextField(
+    return CustomFormTextField(
       obscureText: isObscure,
       onSaved: widget.onSaved,
       suffixIcon: Padding(
