@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fruits_hub/core/widgets/payment_section.dart';
 import 'package:fruits_hub/features/checkout/presentation/views/widgets/address_input_section.dart';
@@ -9,8 +10,9 @@ class CheckoutStepsPageView extends StatelessWidget {
     super.key,
     required this.pageController,
     required this.formKey,
+    required this.valueListenable,
   });
-
+  final ValueListenable<AutovalidateMode> valueListenable;
   final PageController pageController;
   final GlobalKey<FormState> formKey;
   @override
@@ -33,6 +35,7 @@ class CheckoutStepsPageView extends StatelessWidget {
     return [
       const ShipingSection(),
       AddressInputSection(
+        valueListenable: valueListenable,
         formKey: formKey,
       ),
       const PaymentSection(),
