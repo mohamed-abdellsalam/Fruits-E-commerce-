@@ -1,41 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub/core/widgets/custom_text_field.dart';
+import 'package:fruits_hub/features/checkout/domain/entities/order_entity.dart';
 
 class AddressInputSection extends StatelessWidget {
-  const AddressInputSection({super.key});
-
+  const AddressInputSection({super.key, required this.formKey});
+  final GlobalKey<FormState> formKey;
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(height: 24.0),
+          const SizedBox(height: 24.0),
           CustomFormTextField(
+            onSaved: (value) {
+              context.read<OrderEntity>().shippingAddress!.name = value!;
+            },
             hintText: 'الاسم كامل',
             keyboardType: TextInputType.name,
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           CustomFormTextField(
+            onSaved: (value) {
+              context.read<OrderEntity>().shippingAddress!.email = value!;
+            },
             hintText: 'البريد الإلكتروني',
             keyboardType: TextInputType.phone,
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           CustomFormTextField(
+            onSaved: (value) {
+              context.read<OrderEntity>().shippingAddress!.address = value!;
+            },
             hintText: 'العنوان',
             keyboardType: TextInputType.streetAddress,
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           CustomFormTextField(
+            onSaved: (value) {
+              context.read<OrderEntity>().shippingAddress!.city = value!;
+            },
             hintText: 'المدينة',
             keyboardType: TextInputType.text,
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           CustomFormTextField(
+            onSaved: (value) {
+              context.read<OrderEntity>().shippingAddress!.adressDetails =
+                  value!;
+            },
             hintText: 'رقم الطابق , رقم الشقه ..',
             keyboardType: TextInputType.number,
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           CustomFormTextField(
+            onSaved: (value) {
+              context.read<OrderEntity>().shippingAddress!.phoneNumber = value!;
+            },
             hintText: 'رقم الهاتف',
             keyboardType: TextInputType.phone,
           ),
