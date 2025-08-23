@@ -22,7 +22,7 @@ class AddressInputSection extends StatelessWidget {
               const SizedBox(height: 24.0),
               CustomFormTextField(
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddress!.name = value!;
+                  context.read<OrderEntity>().shippingAddress.name = value!;
                 },
                 hintText: 'الاسم كامل',
                 keyboardType: TextInputType.name,
@@ -30,15 +30,15 @@ class AddressInputSection extends StatelessWidget {
               const SizedBox(height: 16.0),
               CustomFormTextField(
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddress!.email = value!;
+                  context.read<OrderEntity>().shippingAddress.email = value!;
                 },
                 hintText: 'البريد الإلكتروني',
-                keyboardType: TextInputType.phone,
+                keyboardType: TextInputType.emailAddress,
               ),
               const SizedBox(height: 16.0),
               CustomFormTextField(
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddress!.address = value!;
+                  context.read<OrderEntity>().shippingAddress.address = value!;
                 },
                 hintText: 'العنوان',
                 keyboardType: TextInputType.streetAddress,
@@ -46,7 +46,7 @@ class AddressInputSection extends StatelessWidget {
               const SizedBox(height: 16.0),
               CustomFormTextField(
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddress!.city = value!;
+                  context.read<OrderEntity>().shippingAddress.city = value!;
                 },
                 hintText: 'المدينة',
                 keyboardType: TextInputType.text,
@@ -54,7 +54,7 @@ class AddressInputSection extends StatelessWidget {
               const SizedBox(height: 16.0),
               CustomFormTextField(
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddress!.adressDetails =
+                  context.read<OrderEntity>().shippingAddress.adressDetails =
                       value!;
                 },
                 hintText: 'رقم الطابق , رقم الشقه ..',
@@ -63,7 +63,7 @@ class AddressInputSection extends StatelessWidget {
               const SizedBox(height: 16.0),
               CustomFormTextField(
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddress!.phoneNumber =
+                  context.read<OrderEntity>().shippingAddress.phoneNumber =
                       value!;
                 },
                 hintText: 'رقم الهاتف',
