@@ -54,8 +54,7 @@ class AddressInputSection extends StatelessWidget {
               const SizedBox(height: 16.0),
               CustomFormTextField(
                 onSaved: (value) {
-                  context.read<OrderEntity>().shippingAddress.adressDetails =
-                      value!;
+                  context.read<OrderEntity>().shippingAddress.floor = value!;
                 },
                 hintText: 'رقم الطابق , رقم الشقه ..',
                 keyboardType: TextInputType.number,
