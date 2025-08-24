@@ -39,7 +39,7 @@ class CartEntity {
     }
     return CartItemEntitiy(
       productEntity: product,
-      count: 1,
+      quantity: 1,
     );
   }
 }
