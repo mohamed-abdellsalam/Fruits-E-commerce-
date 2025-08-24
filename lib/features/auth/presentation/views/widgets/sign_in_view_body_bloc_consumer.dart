@@ -23,7 +23,7 @@ class SignInViewBodyBlocConsumer extends StatelessWidget {
           );
           Navigator.pushNamed(context, MainView.routeName);
         } else if (state is SigninFailure) {
-          showErrorBar(context, state.message);
+          showBar(context, state.message);
         }
       },
       builder: (context, state) {

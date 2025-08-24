@@ -6,6 +6,8 @@ import 'package:fruits_hub/features/checkout/domain/entities/order_entity.dart';
 import 'package:fruits_hub/features/checkout/presentation/views/widgets/checkout_steps.dart';
 import 'package:fruits_hub/features/checkout/presentation/views/widgets/checkout_steps_page_view.dart';
 
+import '../../manger/add_order_cubit/add_order_cubit.dart';
+
 class CheckoutViewBody extends StatefulWidget {
   const CheckoutViewBody({super.key});
 
@@ -60,8 +62,10 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                 _handlingShipingSectionValdtion(context);
               } else if (currentPageIndex == 1) {
                 _handlingAddressSectionValdtion(context);
-              } else if (currentPageIndex == 2) {
-                // Handle payment action here
+              } else {
+                context.read<AddOrderCubit>().addOrder(
+                      order: context.read<OrderEntity>(),
+                    );
               }
             },
             text: getNextButtonText(currentPageIndex),
@@ -82,7 +86,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         curve: Curves.easeInOut,
       );
     } else {
-      showErrorBar(context, 'يرجى اختيار طريقة الدفع');
+      showBar(context, 'يرجى اختيار طريقة الدفع');
     }
   }
 
@@ -109,7 +113,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
       );
     } else {
       valueNotifier.value = AutovalidateMode.always;
-      showErrorBar(context, 'يرجى ملئ جميع الحقول');
+      showBar(context, 'يرجى ملئ جميع الحقول');
     }
   }
 }
